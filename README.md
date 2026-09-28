@@ -141,9 +141,9 @@ Claude Code와 함께 며칠 동안 만들었습니다. 첫 동작 커밋부터 
 <!-- VIDEO:START -->
 ### 홍보 영상
 
-[![홍보 영상 (가로 16:9, 70초) — 누르면 재생 화면으로 갑니다](docs/images/video-poster.png)](docs/video/promo_16x9.mp4)
+[![홍보 영상 미리보기 — 누르면 전체 영상(가로 16:9, 70초)이 재생됩니다](docs/images/video-preview.webp)](https://pub-81d14e6ebfb841109968e9c0ee057d1b.r2.dev/android-mac-lab/videos/fold-cyberdeck/fold-cyberdeck_16x9.mp4)
 
-▶ [가로 16:9 · 70초](docs/video/promo_16x9.mp4) · ▶ [세로 9:16 · 65초](docs/video/promo_9x16.mp4) — 영상 속 화면은 설명용 목업입니다.
+▶ [가로 16:9 · 70초](https://pub-81d14e6ebfb841109968e9c0ee057d1b.r2.dev/android-mac-lab/videos/fold-cyberdeck/fold-cyberdeck_16x9.mp4) · ▶ [세로 9:16 · 65초](https://pub-81d14e6ebfb841109968e9c0ee057d1b.r2.dev/android-mac-lab/videos/fold-cyberdeck/fold-cyberdeck_9x16.mp4) — 영상 속 화면은 설명용 목업이고, 책상 사진은 AI로 만든 배경입니다.
 <!-- VIDEO:END -->
 
 ## 관련 프로젝트
