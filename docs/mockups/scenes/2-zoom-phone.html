@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8">
+<meta name="shot" content="w=600,h=584,scale=3">
+<title>장면 2 폰 — 3배 줌</title>
+<link rel="stylesheet" href="https://mockup-kit.invalid/kit.css">
+<script src="https://mockup-kit.invalid/kit.js"></script>
+<style>
+html,body{width:600px;height:584px;overflow:hidden}
+
+.desk{position:absolute;left:0;top:0;width:1600px;height:982px;overflow:hidden;font-family:"Pretendard",sans-serif;color:#1d1d1f;
+  background:linear-gradient(150deg,#A9C2B2 0%,#7A98AE 55%,#566F8A 100%);transform-origin:0 0}
+.desk .bar{height:32px;background:rgba(246,246,248,.86);display:flex;align-items:center;gap:22px;padding:0 18px;font-size:16px}
+.desk .bar b{font-weight:700}
+.desk .bar .r{margin-left:auto;display:flex;gap:22px;align-items:center}
+.desk .win{position:absolute;background:#fff;border-radius:12px;box-shadow:0 14px 40px rgba(0,0,0,.28);overflow:hidden}
+.desk .tb{height:44px;background:#ECECEE;border-bottom:1px solid #DADADC;display:flex;align-items:center;gap:9px;padding:0 16px;font-size:17px;color:#444;position:relative}
+.desk .tb i{width:14px;height:14px;border-radius:50%;display:block}
+.desk .tb i:nth-child(1){background:#FF5F57}.desk .tb i:nth-child(2){background:#FEBC2E}.desk .tb i:nth-child(3){background:#28C840}
+.desk .tb span{position:absolute;left:0;right:0;text-align:center;font-weight:600;pointer-events:none}
+.desk .win.back .tb i{background:#CFCFD2}
+.desk .doc{padding:30px 38px;white-space:pre-line}
+.desk .cur{display:inline-block;width:3px;background:#1d1d1f;vertical-align:-6px}
+.desk .dock{position:absolute;left:50%;bottom:12px;transform:translateX(-50%);height:78px;padding:10px 14px;border-radius:22px;background:rgba(255,255,255,.35);display:flex;gap:12px}
+.desk .dock span{width:58px;height:58px;border-radius:14px;display:block}
+.desk .mouse{position:absolute;width:0;height:0;border-left:12px solid transparent;border-right:12px solid transparent;border-bottom:30px solid #111;transform:rotate(-28deg);filter:drop-shadow(0 0 2px #fff)}
+.desk table{border-collapse:collapse;width:100%;font-size:20px}
+.desk th,.desk td{border:1px solid #E2E2E5;padding:9px 12px;text-align:left;white-space:nowrap}
+.desk th{background:#F4F4F6;font-weight:600;color:#555}
+.desk td.n{text-align:right;font-variant-numeric:tabular-nums}
+.desk tr.sum td{font-weight:700;background:#F7FAEF}
+
+body{background:#000}
+.ph{position:absolute;inset:0;display:flex;flex-direction:column;background:var(--bg);color:var(--text)}
+.deck{--key:color-mix(in srgb,var(--text) 14%,var(--bg));--key-acc:color-mix(in srgb,var(--accent) 26%,var(--bg))}
+.ph .status-bar{height:30px;padding:0 18px;font-size:14px}
+.stream{position:relative;flex:none;background:#000;overflow:hidden}
+.stream .fit{position:absolute;left:0;top:0}
+.band{position:absolute;left:50%;bottom:10px;transform:translateX(-50%);border-radius:5px;padding:3px 12px;color:var(--bg);font-family:var(--mono);font-weight:800;white-space:nowrap;z-index:5}
+.badge{position:absolute;right:8px;top:8px;border-radius:6px;padding:2px 9px;background:var(--accent);color:var(--bg);font-weight:800;z-index:5}
+.tele{flex:none;display:flex;align-items:center;gap:12px;padding:0 12px;font-family:var(--mono);color:var(--dim);background:var(--panel);border-top:1px solid var(--border);white-space:nowrap;overflow:hidden}
+.tele .srv{color:var(--accent);font-weight:700}
+.dchips{flex:none;display:flex;gap:7px;padding:6px 10px;background:var(--panel);border-bottom:1px solid var(--border);overflow:hidden}
+.dchip{flex:none;padding:0 10px;border-radius:7px;display:inline-flex;align-items:center;font-family:var(--mono);border:1px solid var(--border);color:var(--text);background:var(--panel2)}
+.dchip.on{border-color:var(--accent);color:var(--accent);background:var(--accent-tint);font-weight:700}
+.kb{flex:none;display:flex;flex-direction:column;gap:4px;padding:6px 5px 4px}
+.kr{display:flex;gap:3px}
+.k{flex:1 1 0;min-width:0;border-radius:6px;background:var(--key);color:var(--text);display:flex;align-items:center;justify-content:center;font-family:var(--mono);white-space:nowrap}
+.k.a{background:var(--key-acc);color:var(--accent);font-weight:700}
+.k.hit{background:var(--accent);color:var(--bg);font-weight:800}
+.pad{flex:1;min-height:0;display:flex;gap:7px;padding:6px 8px 10px}
+.tp{flex:1;border-radius:14px;background:var(--panel2);border:1px solid var(--border);position:relative;display:flex;align-items:center;justify-content:center;color:var(--dim)}
+.lr{display:flex;flex-direction:column;gap:7px}
+.lr span{flex:1;border-radius:11px;background:var(--key);display:flex;align-items:center;justify-content:center;font-family:var(--mono);color:var(--text)}
+.mic{border-radius:12px;background:var(--panel2);border:1px solid var(--border);color:var(--dim);display:flex;flex-direction:column;gap:6px;align-items:center;justify-content:center;font-family:var(--mono);font-weight:700}
+.mic.on{background:var(--accent);color:var(--bg);border-color:var(--accent)}
+.touch{position:absolute;border-radius:50%;background:color-mix(in srgb,var(--accent) 32%,transparent);border:3px solid var(--accent);z-index:6}
+
+</style>
+</head><body>
+<div class="ph dark app-cyberdeck deck">
+<div class="status-bar" data-time="2:30"></div>
+<div class="stream" style="width:600px;height:342px"><div class="fit" style="transform:translate(-1151.25px,-279.0px)"><div class="desk" style="transform:scale(1.125)">
+<div class="bar"><b>스프레드시트</b><span>파일</span><span>편집</span><span>삽입</span><span>표</span><span>정렬</span><span>윈도우</span><span class="r"><span>100%</span><span>9월 28일 (일) 오후 2:30</span></span></div>
+<div class="win back" style="left:60px;top:120px;width:620px;height:520px"><div class="tb"><i></i><i></i><i></i><span>메모</span></div></div>
+<div class="win" style="left:1000px;top:96px;width:560px;height:600px"><div class="tb"><i></i><i></i><i></i><span>9월 장보기 가계부</span></div>
+  <div style="padding:22px 24px"><table><tr><th>날짜</th><th>품목</th><th>가게</th><th>금액(원)</th></tr><tr><td>9/21</td><td>우유 두 팩</td><td>동네 마트</td><td class="n">5,960</td></tr><tr><td>9/22</td><td>두부</td><td>동네 마트</td><td class="n">1,800</td></tr><tr><td>9/23</td><td>대파 한 단</td><td>시장</td><td class="n">2,500</td></tr><tr><td>9/24</td><td>달걀 한 판</td><td>동네 마트</td><td class="n">7,480</td></tr><tr><td>9/25</td><td>사과 네 알</td><td>시장</td><td class="n">9,000</td></tr><tr><td>9/26</td><td>식빵</td><td>빵집</td><td class="n">4,200</td></tr><tr><td>9/27</td><td>커피 원두</td><td>카페</td><td class="n">16,000</td></tr><tr class="sum"><td></td><td>합계</td><td></td><td class="n">46,940</td></tr></table></div></div>
+<div class="mouse" style="left:1320px;top:560px"></div>
+<div class="dock"><span style="background:#E8EEF4"></span><span style="background:#5B8DEF"></span><span style="background:#F2B84B"></span><span style="background:#58C27D"></span><span style="background:#E0645C"></span><span style="background:#9A7BE0"></span><span style="background:#3A3F47"></span><span style="background:#D9DCE1"></span></div>
+</div></div><span class="touch" style="width:46px;height:46px;left:40px;top:272px"></span><span class="touch" style="width:46px;height:46px;left:340px;top:272px"></span></div>
+<div class="tele" style="height:36px;font-size:17px"><span class="srv">● 노트북</span><span>30fps</span><span>net 7ms</span></div>
+<div class="dchips" style="padding:7px 10px"><span class="dchip on" style="height:34px;font-size:18px">⤢3.0x</span><span class="dchip on" style="height:34px;font-size:18px">PAD</span><span class="dchip" style="height:34px;font-size:18px">TAP</span><span class="dchip" style="height:34px;font-size:18px">MC</span><span class="dchip" style="height:34px;font-size:18px">한/영</span><span class="dchip" style="height:34px;font-size:18px">END</span></div>
+<div class="pad"><div class="lr" style="width:74px"><span style="font-size:20px">L</span><span style="font-size:20px">R</span></div><div class="tp" style="font-size:20px">트랙패드</div><div class="mic" style="width:70px;font-size:14px"><i data-icon="mic" style="font-size:28px"></i>음성</div></div>
+</div>
+</body></html>
