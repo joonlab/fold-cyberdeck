@@ -1,0 +1,5 @@
+.build/
+.swiftpm/
+*.o
+.DS_Store
+deckd.token

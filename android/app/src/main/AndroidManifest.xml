@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- 받아쓰기(음성 → 맥으로 타이핑). 런타임에 물어본다. -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
+    <!-- Android 11+ 패키지 가시성. 이게 없으면 `SpeechRecognizer.isRecognitionAvailable` 이
+         인식기가 있어도 false 를 돌려준다. -->
+    <queries>
+        <intent>
+            <action android:name="android.speech.RecognitionService" />
+        </intent>
+    </queries>
+
+    <application
+        android:label="사이버덱"
+        android:icon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:theme="@style/Theme.FoldLab"
+        android:supportsRtl="true">
+
+        <!-- 접었다 펴는 기기에서 «크기 변화를 스스로 감당한다»는 선언.
+             configChanges 에 screenSize|smallestScreenSize|screenLayout 이 있으면 시스템은 액티비티를
+             재생성하지 않는 대신 이 앱이 크기 변화를 감당하는지 알 수 없게 되고, 그때 size compat
+             (창을 옛 크기에 얼려 두고 축소·레터박스)으로 보낼 수 있다. resizeableActivity=true 만으로는
+             부족하다는 것이 공식 문서의 안내다.
+             ⚠️ 예방 선언이다 — 2026-09-22 «펼쳐도 커버 크기가 유지된다»는 신고의 실제 원인은
+             `adb shell wm size` 오버라이드가 내부 디스플레이에 남아 있던 것이었다(앱 문제 아님). -->
+        <meta-data android:name="android.supports_size_changes" android:value="true" />
+
+        <!-- screenOrientation: 가로를 쓰려면 잠그면 안 된다.
+             configChanges 에 orientation|screenSize 가 있어 회전해도 Activity 는 재생성되지 않는다. -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:screenOrientation="fullUser"
+            android:resizeableActivity="true"
+            android:configChanges="orientation|screenSize|screenLayout|smallestScreenSize|keyboardHidden|density|uiMode">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>

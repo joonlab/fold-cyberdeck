@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8">
+<meta name="shot" content="w=1600,h=1000,scale=2">
+<title>영상 경로</title>
+<link rel="stylesheet" href="https://mockup-kit.invalid/kit.css">
+<script src="https://mockup-kit.invalid/kit.js"></script>
+<style>
+  .deck { --key: color-mix(in srgb, var(--text) 13%, var(--bg)); --key-acc: color-mix(in srgb, var(--accent) 26%, var(--bg)); }
+  .stream { position: relative; flex: none; background: #000; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .tele { flex: none; height: 26px; padding: 0 12px; display: flex; align-items: center; gap: 10px; font-family: var(--mono); font-size: 11.5px; color: var(--dim); background: var(--panel); border-top: 1px solid var(--border); white-space: nowrap; overflow: hidden; }
+  .tele .srv { color: var(--accent); font-weight: 700; }
+  .tele .ok { color: var(--ok); }
+  .dchips { flex: none; display: flex; gap: 6px; padding: 6px 10px; background: var(--panel); border-bottom: 1px solid var(--border); overflow: hidden; }
+  .dchip { flex: none; height: 26px; padding: 0 10px; border-radius: 7px; display: inline-flex; align-items: center; font-family: var(--mono); font-size: 11.5px; border: 1px solid var(--border); color: var(--text); background: var(--panel2); }
+  .dchip.on { border-color: var(--accent); color: var(--accent); background: var(--accent-tint); font-weight: 700; }
+  .kb { flex: none; display: flex; flex-direction: column; gap: 5px; padding: 8px 8px 6px; background: var(--bg); }
+  .kr { display: flex; gap: 5px; }
+  .k { flex: 1 1 0; min-width: 0; height: 42px; border-radius: 7px; background: var(--key); color: var(--text); display: flex; align-items: center; justify-content: center; font-family: var(--mono); font-size: 14px; white-space: nowrap; }
+  .k.a { background: var(--key-acc); color: var(--accent); font-weight: 700; font-size: 12.5px; }
+  .k.sm { font-size: 11px; }
+  .k.ghost { background: transparent; }
+  .k.down { outline: 2px solid var(--accent); }
+  .pad { flex: 1; min-height: 0; display: flex; gap: 6px; padding: 6px 8px 8px; background: var(--bg); }
+  .tp { flex: 1; border-radius: 12px; background: var(--panel2); border: 1px solid var(--border); position: relative; display: flex; align-items: center; justify-content: center; color: var(--dim); font-size: 12px; }
+  .lr { display: flex; flex-direction: column; gap: 6px; width: 64px; }
+  .lr span { flex: 1; border-radius: 10px; background: var(--key); display: flex; align-items: center; justify-content: center; font-family: var(--mono); font-size: 13px; color: var(--text); }
+  .mic { width: 44px; border-radius: 12px; background: var(--accent-tint); border: 1px solid var(--accent-line); color: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 20px; }
+  .touch { position: absolute; width: 34px; height: 34px; border-radius: 50%; background: color-mix(in srgb, var(--accent) 30%, transparent); border: 2px solid var(--accent); }
+  /* 폰 안의 맥 화면(축소) — 1000x650 으로 그리고 줄인다 */
+  .mm-wrap { position: relative; overflow: hidden; }
+  .mm { position: absolute; left: 0; top: 0; width: 1000px; height: 650px; transform-origin: 0 0; font-family: "Pretendard", sans-serif; color: #1d1d1f;
+        background: linear-gradient(150deg, #9FB8A8 0%, #6F8FA6 55%, #4F6A85 100%); }
+  .mm .bar { height: 24px; background: rgba(245,245,247,.82); display: flex; align-items: center; gap: 16px; padding: 0 12px; font-size: 13px; }
+  .mm .bar b { font-weight: 700; }
+  .mm .bar .r { margin-left: auto; }
+  .mm .win { position: absolute; left: 150px; top: 70px; width: 560px; height: 420px; background: #fff; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,.25); overflow: hidden; }
+  .mm .win .tb { height: 32px; background: #ECECEE; display: flex; align-items: center; gap: 7px; padding: 0 12px; font-size: 12.5px; color: #555; }
+  .mm .win .tb i { width: 11px; height: 11px; border-radius: 50%; display: block; }
+  .mm .win .tb i:nth-child(1){background:#FF5F57}.mm .win .tb i:nth-child(2){background:#FEBC2E}.mm .win .tb i:nth-child(3){background:#28C840}
+  .mm .win .tb span { margin-left: 150px; font-weight: 600; }
+  .mm .win .doc { padding: 22px 26px; font-size: 19px; line-height: 32px; white-space: pre-line; }
+  .mm .cur { display: inline-block; width: 2px; height: 22px; background: #1d1d1f; vertical-align: -4px; }
+  .mm .win2 { position: absolute; left: 560px; top: 160px; width: 380px; height: 300px; background: #F7F7F8; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,.25); overflow: hidden; }
+  .mm .win2 .tb { height: 32px; background: #E6E6E8; display: flex; align-items: center; gap: 7px; padding: 0 12px; }
+  .mm .win2 .tb i { width: 11px; height: 11px; border-radius: 50%; display: block; background: #CFCFD2; }
+  .mm .win2 .cal { padding: 16px; display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; }
+  .mm .win2 .cal span { height: 30px; border-radius: 6px; background: #fff; font-size: 12px; display: flex; align-items: center; justify-content: center; color: #666; }
+  .mm .win2 .cal span.h { background: #DCE8F7; color: #1D4ED8; font-weight: 700; }
+  .mm .dock { position: absolute; left: 50%; bottom: 10px; transform: translateX(-50%); height: 62px; padding: 8px 12px; border-radius: 18px; background: rgba(255,255,255,.35); display: flex; gap: 10px; }
+  .mm .dock span { width: 46px; height: 46px; border-radius: 12px; display: block; }
+  .mm .mouse { position: absolute; width: 0; height: 0; border-left: 9px solid transparent; border-right: 9px solid transparent; border-bottom: 22px solid #111; transform: rotate(-28deg); filter: drop-shadow(0 0 1.5px #fff); }
+  .note { font-size: 14px; line-height: 21px; color: var(--mac-dim); }
+  .callout { position: absolute; z-index: 30; background: var(--raised); color: var(--text); border: 1px solid var(--border); border-radius: 12px; padding: 10px 14px; font-size: 14px; line-height: 20px; box-shadow: var(--shadow-float); }
+  .callout b { color: var(--accent); }
+
+  .flow { position: absolute; left: 70px; right: 70px; top: 160px; display: flex; align-items: stretch; gap: 0; }
+  .node { flex: 1; background: var(--raised); border: 1px solid var(--border); border-radius: 14px; padding: 16px 18px; }
+  .node h4 { margin: 0 0 6px; font-size: 17px; line-height: 24px; }
+  .node .meta { font-size: 13.5px; line-height: 20px; }
+  .node.mac { border-top: 4px solid var(--accent); }
+  .node.phone { border-top: 4px solid var(--ok); }
+  .arrow { flex: none; width: 56px; display: flex; align-items: center; justify-content: center; color: var(--dim); font-size: 22px; }
+  .lane { position: absolute; left: 70px; right: 70px; top: 318px; height: 64px; border: 1px dashed var(--border); border-radius: 12px; display: flex; align-items: center; padding: 0 18px; gap: 12px; font-size: 14.5px; color: var(--text); }
+  .lane .tag { flex: none; }
+  .cards { position: absolute; left: 70px; right: 70px; top: 420px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 22px; }
+  .bars { display: flex; flex-direction: column; gap: 10px; margin-top: 10px; }
+  .bar-row { display: grid; grid-template-columns: 110px 1fr 58px; align-items: center; gap: 10px; font-size: 13.5px; }
+  .bar-bg { height: 14px; border-radius: 7px; background: var(--panel2); overflow: hidden; }
+  .bar-bg span { display: block; height: 100%; border-radius: 7px; }
+  .big { font-size: 34px; line-height: 40px; font-weight: 800; letter-spacing: -.5px; }
+</style>
+</head><body>
+<div class="canvas app-cyberdeck desk-accent">
+  <div style="position:absolute;left:70px;top:48px">
+    <div class="canvas-title">맥 화면이 폰까지 가는 길</div>
+    <div class="canvas-sub">의존 라이브러리 없이 시스템 프레임워크만으로, UDP 한 줄로 오간다</div>
+  </div>
+  <div class="flow">
+    <div class="node mac"><h4>ScreenCaptureKit</h4><div class="meta">맥 본 화면(메뉴바·Dock 포함)을 30fps 로 캡처</div></div>
+    <div class="arrow"><i data-icon="arrow-right"></i></div>
+    <div class="node mac"><h4>VideoToolbox H.264</h4><div class="meta">하드웨어 인코딩, 핀치하면 서버에서 잘라 원본 픽셀로 확대</div></div>
+    <div class="arrow"><i data-icon="arrow-right"></i></div>
+    <div class="node mac"><h4>UDP 조각 + 토큰 태그</h4><div class="meta">SHA-256(토큰) 앞 8바이트로 모르는 패킷은 버린다</div></div>
+    <div class="arrow"><i data-icon="arrow-right"></i></div>
+    <div class="node phone"><h4>MediaCodec 디코드</h4><div class="meta">폰에서 조각을 모아 프레임으로 복원해 그린다</div></div>
+  </div>
+  <div class="lane"><span class="tag accent">입력</span>폰 키보드·트랙패드·음성 → 같은 UDP 로 역방향 → <b>CGEvent</b> 로 맥에 주입 &nbsp;<span class="dim">(한글은 폰에서 조합해 완성 음절만 보낸다)</span></div>
+  <div class="cards">
+    <div class="card raised">
+      <div class="card-title">조각 재전송(NACK)</div>
+      <div class="meta">먼 망에서 키프레임이 통째로 깨지던 문제. 빠진 조각만 다시 달라고 한다.</div>
+      <div class="bars">
+        <div class="bar-row"><span>재전송 전</span><div class="bar-bg"><span style="width:64.3%;background:var(--warn)"></span></div><b class="tnum">64.3%</b></div>
+        <div class="bar-row"><span>재전송 후</span><div class="bar-bg"><span style="width:100%;background:var(--ok)"></span></div><b class="tnum">100%</b></div>
+      </div>
+      <div class="caption" style="margin-top:8px">키프레임 완주율, 국제 구간 실측</div>
+    </div>
+    <div class="card raised">
+      <div class="card-title">지연</div>
+      <div class="big tnum">6~9<span style="font-size:20px"> ms</span></div>
+      <div class="meta">같은 망에서 net 표시값. 먼 맥(국제 구간)은 RTT 58ms 가 최선이었다.</div>
+    </div>
+    <div class="card raised">
+      <div class="card-title">스트림</div>
+      <div class="big tnum">1748×1136</div>
+      <div class="meta">내장 1512×982 화면을 30fps 로. 텔레메트리 줄에 늘 숫자가 떠 있다.</div>
+    </div>
+  </div>
+  <div style="position:absolute;left:70px;top:692px" class="canvas-sub"><b style="color:var(--mac-text)">조용히 실패하는 UDP 함정</b> — 에러 없이 입력만 안 가던 세 가지</div>
+  <div class="cards" style="top:736px">
+    <div class="card danger"><div class="card-title">예외 메시지가 null</div><div class="meta">UI 스레드에서 보낸 UDP 가 NetworkOnMainThreadException 으로 죽는데, 로그엔 <span class="mono">send: null</span> 만 남았다. 영상은 오고 입력만 안 갔다.</div></div>
+    <div class="card danger"><div class="card-title">람다가 한 번도 안 불림</div><div class="meta">콜백 람다가 같은 이름의 멤버 함수로 해석돼 입력 패킷이 한 번도 나가지 않았다. 컴파일도 경고도 없었다.</div></div>
+    <div class="card danger"><div class="card-title">탭이 우클릭이 됨</div><div class="meta">주입한 ⌃ 플래그가 맥에 남아 이후 클릭이 전부 우클릭이 됐다. 듣기 전용 이벤트 탭으로 «도착한 것»을 보고 찾았다.</div></div>
+  </div>
+</div>
+</body></html>

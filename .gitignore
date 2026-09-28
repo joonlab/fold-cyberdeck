@@ -1,0 +1,34 @@
+# 빌드 산출물
+android/build/
+android/app/build/
+android/.gradle/
+android/.kotlin/
+mac/.build/
+mac/.swiftpm/
+*.apk
+*.aab
+*.o
+
+# 로컬 설정·비밀 (config.example.properties 만 커밋)
+local.properties
+android/local.properties
+*.token
+deckd.token
+*.p12
+*.pem
+*.pw
+.env
+
+# 에디터·OS
+.idea/
+*.iml
+.vscode/
+.DS_Store
+
+# 로그·실행 기록
+*.log
+runs/
+_data/
+
+# 잘못 만든 파일 보관
+_trash/
