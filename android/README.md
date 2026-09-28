@@ -112,7 +112,7 @@
 `adb shell input` 은 **단일 포인터만** 보낸다(`motionevent <DOWN|UP|MOVE|CANCEL> <x> <y>` — 포인터 id 가 없다).
 `sendevent` 로 `/dev/input` 에 직접 쓰려면 root 가 필요한데 이 기기는 `Permission denied` 다.
 그래서 두·세 손가락은 Compose 계측 테스트가 **진짜 멀티포인터 이벤트**를 흘려 검증한다
-(`app/src/androidTest/.../GestureTest.kt`, 17개). 커버 키보드 치수 3개 + 독 클램프 3개까지 **총 23개**.
+(`app/src/androidTest/.../GestureTest.kt`). 계측 테스트는 지금 전체 93개다(키보드·독·자세 동등성·받아쓰기·프로토콜 포함).
 
 ```bash
 ./dev.sh test                       # 전부
@@ -143,8 +143,8 @@ android.hardware.input.InputManager.getInstance`. compose `ui-test-junit4` 가 �
 | 스트림 **세 손가락 ↓** | 앱 윈도우 (App Exposé) |
 | 스트림 **두 번 빠르게 탭** | 맥 **더블클릭**(단어 선택·파일 열기) |
 | 키 **길게 누르기** | 연타(420ms 후 55ms 간격) — ⌫·방향키용 |
-| 우하단 **트랙볼** | 커서 상대이동, 탭=좌클릭 |
-| 좌하단 **L/R** | 좌·우 클릭 |
+| **트랙패드** | 커서 상대이동, 탭=좌클릭 |
+| 트랙패드 옆 **L/R** | 좌·우 클릭 |
 
 같은 동작이 칩으로도 있다(접은 커버 화면에서는 세 손가락이 사실상 불가능하다):
 `◀SP` `SP▶` `MC` `앱창`
@@ -566,8 +566,11 @@ net/DeckClient.kt      UDP · 조각 재조립 · 세션 · 텔레메트리 · �
 net/H264Decoder.kt     MediaCodec → Surface (키프레임 전에는 시작하지 않는다)
 input/MacKeyCodes.kt   macOS 가상 키코드 표
 input/Hangul.kt        두벌식 조합기
+input/Dictation.kt     음성 받아쓰기 (온디바이스 ↔ 망 엔진 전환)
 ui/Deck.kt             팔레트 · 키 정의
-ui/Keyboard.kt         5행 키보드
-ui/Trackball.kt        트랙볼
+ui/Keyboard.kt         5행 키보드 · 커버 10열 키보드
+ui/Trackpad.kt         트랙패드 + L/R · 마이크 버튼
+ui/Gestures.kt         스트림·트랙패드 공통 제스처 판정
+ui/FloatingDock.kt     펼침 가로용 플로팅 독
 ui/TelemetryBar.kt     텔레메트리 + 토글
 ```

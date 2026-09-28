@@ -7,7 +7,7 @@
 ```
 [폰 FoldLab]  ──UDP/Tailscale──  [맥 deckd]
    MediaCodec  ←── H.264 Annex-B ──  VideoToolbox ← ScreenCaptureKit
-   키보드·트랙볼 ──── 입력 이벤트 ───→  CGEvent
+   키보드·트랙패드 ── 입력 이벤트 ───→  CGEvent
 ```
 
 ## 쓰기
